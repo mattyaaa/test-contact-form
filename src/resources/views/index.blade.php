@@ -60,7 +60,7 @@
               <input type="email" name="email" placeholder="例: test@example.com" required />
             </div>
             <div class="form__error">
-              <!--バリデーション機能を実装したら記述します。-->
+              <!--バリデーション機能を実装したら記述-->
             </div>
           </div>
         </div>
@@ -115,6 +115,11 @@
             <div class="form__input--select">
               <select name="inquiry_type" required>
                 <option value="">選択してください</option>
+                <option value="delivery">商品のお届けについて</option>
+                <option value="exchange">商品の交換について</option>
+                <option value="trouble">商品トラブル</option>
+                <option value="shop">ショップへのお問い合わせ</option>
+                <option value="other">その他</option>
               </select>
             </div>
             <div class="form__error">
