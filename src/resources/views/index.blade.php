@@ -36,13 +36,13 @@
           <div class="form__group-content">
             <div class="form__input--radio">
               <label>
-                <input type="radio" name="gender" value="male" required /> 男性
+                <input type="radio" name="gender" value="1" required /> 男性
               </label>
               <label>
-                <input type="radio" name="gender" value="female" required /> 女性
+                <input type="radio" name="gender" value="2" required /> 女性
               </label>
               <label>
-                <input type="radio" name="gender" value="other" required /> その他
+                <input type="radio" name="gender" value="3" required /> その他
               </label>
             </div>
             <div class="form__error">
