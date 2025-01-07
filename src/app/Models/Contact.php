@@ -16,6 +16,13 @@ class Contact extends Model
         'tel',
         'address',
         'building',
-        'content'
+        'inquiry_type',
+        'content',
+        'category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

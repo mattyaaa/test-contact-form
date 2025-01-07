@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Contact;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ContactFactory extends Factory
@@ -12,20 +13,26 @@ class ContactFactory extends Factory
      *
      * @return array
      */
+
+     protected $model = Contact::class;
+
     public function definition()
     {
+
+        $categories = Category::all();
+        $inquiryType = $categories->isEmpty() ? 'default' : $categories->random()->content;
+
         return [
             'last_name' => $this->faker->lastName,
             'first_name' => $this->faker->firstName,
-            'gender' => $this->faker->randomElement([1, 2, 3]),
+            'gender' => $this->faker->randomElement(['男性', '女性', 'その他']),
             'email' => $this->faker->unique()->safeEmail,
-            'phone1' => $this->faker->numberBetween(100, 999),
-            'phone2' => $this->faker->numberBetween(1000, 9999),
-            'phone3' => $this->faker->numberBetween(1000, 9999),
+            'tel' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
             'building' => $this->faker->optional()->secondaryAddress,
-            'inquiry_type' => $this->faker->randomElement(['delivery', 'exchange', 'trouble', 'shop', 'other']),
-            'content' => $this->faker->text(120),
+            'inquiry_type' => $inquiryType,
+            'content' => $this->faker->paragraph,
+            'category_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
