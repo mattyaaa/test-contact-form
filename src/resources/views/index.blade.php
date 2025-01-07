@@ -130,11 +130,9 @@
             <div class="form__input--select">
               <select name="inquiry_type" required>
                 <option value="">選択してください</option>
-                <option value="delivery" {{ old('inquiry_type') == 'delivery' ? 'selected' : '' }}>商品のお届けについて</option>
-                        <option value="exchange" {{ old('inquiry_type') == 'exchange' ? 'selected' : '' }}>商品の交換について</option>
-                        <option value="trouble" {{ old('inquiry_type') == 'trouble' ? 'selected' : '' }}>商品トラブル</option>
-                        <option value="shop"{{ old('inquiry_type') == 'shop' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
-                        <option value="other" {{ old('inquiry_type') == 'other' ? 'selected' : '' }}>その他</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->content }}" {{ old('inquiry_type') == $category->content ? 'selected' : '' }}>{{ $category->content }}</option>
+                @endforeach
               </select>
             </div>
             <div class="form__error">
