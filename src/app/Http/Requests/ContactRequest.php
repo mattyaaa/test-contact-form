@@ -33,7 +33,7 @@ class ContactRequest extends FormRequest
             'phone3' => 'required|digits_between:1,5|regex:/^[0-9]+$/',
             'address' => 'required|string|max:255',
             'building' => 'nullable|string|max:255',
-            'inquiry_type' => 'required|string|in:delivery,exchange,trouble,shop,other',
+            'inquiry_type' => 'required|string|in:商品のお届けについて,商品の交換について,商品トラブル,ショップへのお問い合わせ,その他',
             'content' => 'required|string|max:120',
         ];
     }

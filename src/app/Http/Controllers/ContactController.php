@@ -45,6 +45,7 @@ class ContactController extends Controller
             'building',
             'inquiry_type',
             'content']);
+        $contact['category_id'] = Category::where('content', $contact['inquiry_type'])->first()->id;
         Contact::create($contact);
         return view('thanks');
     }

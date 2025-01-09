@@ -131,7 +131,7 @@
               <select name="inquiry_type" required>
                 <option value="">選択してください</option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->content }}" {{ old('inquiry_type') == $category->content ? 'selected' : '' }}>{{ $category->content }}</option>
+                      <option value="{{ $category->content }}" {{ old('inquiry_type') == $category->content ? 'selected' : '' }}>{{ $category->content }}</option>
                 @endforeach
               </select>
             </div>

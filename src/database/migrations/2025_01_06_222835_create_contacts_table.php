@@ -24,7 +24,7 @@ class CreateContactsTable extends Migration
             $table->string('address');
             $table->string('building')->nullable();
             $table->string('inquiry_type');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->text('content');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
