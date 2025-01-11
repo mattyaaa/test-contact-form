@@ -5,6 +5,7 @@
 1. リポジトリをクローンします
 
 　　`git clone git@github.com:mattyaaa/test-contact-form.git`
+
 2. Dockerコンテナをビルドして起動します。
 
 　　`docker-compose up -d --build`
@@ -15,18 +16,23 @@
 1. PHPコンテナに入ります。
 
 　　`docker-compose exec php bash`
+
 2. Composerをインストールします。
 
 　　`composer install`
+
 3. .env.example ファイルをコピーして .env ファイルを作成し、環境変数を編集します。
 
 　　`cp .env.example .env`
+
 4. アプリケーションキーを生成します。
 
 　　`php artisan key:generate`
+
 5. データベースのマイグレーションを実行します。
 
 　　`php artisan migrate`
+
 6. データベースのシーディングを実行します。
 
 　　`php artisan db:seed`
