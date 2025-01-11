@@ -20,7 +20,7 @@ class AuthController extends Controller
         $user = $request->only(['name', 'email', 'password']);
         $user['password'] = Hash::make($user['password']);
         User::create($user);
-        return redirect()->route('login')->with('success', '登録が完了しました。ログインしてください。');;
+        return redirect('/login')->with('success', '登録が完了しました。ログインしてください。');;
     }
 
     public function showLoginForm()
@@ -32,8 +32,13 @@ class AuthController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
         if (auth()->attempt($credentials)) {
-            return redirect()->route('admin');
+            return redirect('/admin');
         }
         return back()->withErrors(['email' => 'メールアドレスまたはパスワードが違います']);
+    }
+
+    public function admin()
+    {
+        return view('admin');
     }
 }
