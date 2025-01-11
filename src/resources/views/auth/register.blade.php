@@ -15,7 +15,8 @@
       <div class="registration-form__heading">
         <h2>Register</h2>
       </div>
-      <form class="form" action="/register" method="post">
+      <form class="form" action="/register" method="post" novalidate>
+        @csrf
         <div class="form__group">
           <div class="form__group-title">
             <span class="form__label--item">お名前</span>
