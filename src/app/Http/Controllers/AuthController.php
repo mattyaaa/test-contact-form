@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -28,17 +29,18 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    protected function authenticated(Request $request, $user)
+    {
+        return redirect('/admin');
+    }
+
     public function login(LoginRequest $request)
     {
         $credentials = $request->only(['email', 'password']);
-        if (auth()->attempt($credentials)) {
-            return redirect('/admin');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/admin');
         }
         return back()->withErrors(['email' => 'メールアドレスまたはパスワードが違います']);
     }
 
-    public function admin()
-    {
-        return view('admin');
-    }
 }

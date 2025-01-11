@@ -27,5 +27,3 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm']);
 
 Route::post('/admin', [AuthController::class, 'login']);
-
-Route::get('/admin', [AuthController::class, 'admin']);
