@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CategorySeeder::class);
-
-        \App\Models\Contact::factory()->count(35)->create();
+        $this->call(ContactSeeder::class);
     }
 }

@@ -19,7 +19,6 @@ class CreateContactsTable extends Migration
             $table->string('first_name');
             $table->enum('gender', ['男性', '女性', 'その他']);
             $table->string('email')->unique();
-            $table->dropColumn(['phone1', 'phone2', 'phone3']);
             $table->string('tel');
             $table->string('address');
             $table->string('building')->nullable();

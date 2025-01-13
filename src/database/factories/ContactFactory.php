@@ -32,7 +32,7 @@ class ContactFactory extends Factory
             'building' => $this->faker->optional()->secondaryAddress,
             'inquiry_type' => $inquiryType,
             'content' => $this->faker->paragraph,
-            'category_id' => $this->faker->numberBetween(1, 10),
+            'category_id' => \App\Models\Category::inRandomOrder()->first()->id,
         ];
     }
 }
